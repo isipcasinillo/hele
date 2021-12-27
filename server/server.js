@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 // inquiring the Apollo-server-express that connects express and GraphQl
 const { ApolloServer } = require('apollo-server-express');
-import { typeDefs, resolvers } from ('./schemas');
+const { typeDefs, resolvers } = require('./schemas');
 // imports the mongoose db
 const db = require('./config/connection');
 const app = express();
