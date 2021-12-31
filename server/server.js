@@ -13,7 +13,7 @@ const db = require('./config/connection');
 const app = express();
 // port used for the server or using localhost 3001
 const PORT = process.env.PORT || 3001;
-
+require('dotenv').config({ path: 'ENV_FILENAME' });
 // runs instance of Apollo Server and uses parameters
 
 /* 

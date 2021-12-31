@@ -1,11 +1,16 @@
-const { gql } = require('apollo-server-express');
+const { User } = require('../models')
 
 const resolvers = {
   Query: {
-    hello: () => 'this is a string!',
+    getUsers: async () => {
+      return User.find()
+    }
   },
   Mutation: {
-    createUser: async (parent  )
+    createUser: async (parent, { username, email, password }) => 
+    {
+      return await User.create({username, email, password});
+    }
   },
 };
 
