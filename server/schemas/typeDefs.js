@@ -10,7 +10,7 @@ const typeDefs = gql`
   # Authenticate incoming data from create or login
   type Auth {
     token: ID!
-    profile: Profile
+    user: User
   }
   type Query {
     getUsers: [User]
