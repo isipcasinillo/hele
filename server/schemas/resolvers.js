@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Bottle } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -34,6 +34,12 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+    addBottle: async (parent, { bottleAuthor, bottleText }) => {
+      return Bottle.create({
+        bottleAuthor,
+        bottleText,
+      });
     },
   },
 };
