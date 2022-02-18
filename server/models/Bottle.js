@@ -5,8 +5,6 @@ const bottleSchema = new Schema({
   bottleText: {
     type: String,
     // required: 'You need to leave a bottle!',
-    minlength: 1,
-    maxlength: 280,
     trim: true,
   },
   bottleAuthor: {

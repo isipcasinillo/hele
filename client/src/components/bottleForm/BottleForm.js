@@ -5,18 +5,11 @@ import { ADD_BOTTLE } from '../../utils/mutations';
 const BottleForm = () => {
   const [bottleText, setBottleText] = useState('');
   const [addBottle, { error }] = useMutation(ADD_BOTTLE);
-  const [formState, setFormState] = useState({
-    bottleName: '',
-    bottleDate: '',
-  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.value); // Development //
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    // console.log(event.target.value); // Development //
+    setBottleText(value);
   };
 
   const handleFormSubmit = async (event) => {
@@ -38,14 +31,15 @@ const BottleForm = () => {
   return (
     <>
       <div>BottleForm</div>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <input
           placeholder="How much Ounce"
           name="bottleName"
           type="text"
-          value={formState.bottleText}
+          value={bottleText}
           onChange={handleChange}
         />
+        <button type="submit">Add Bottle</button>
       </form>
     </>
   );
