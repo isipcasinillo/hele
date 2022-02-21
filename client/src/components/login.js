@@ -4,7 +4,7 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
   // updates the UI with every change of the state ((every letter is added))
   const handleChange = (event) => {
     const { name, value } = event.target;

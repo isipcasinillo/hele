@@ -4,10 +4,10 @@ import Auth from '../../utils/auth';
 import { ADD_BOTTLE } from '../../utils/mutations';
 const BottleForm = () => {
   const [bottleText, setBottleText] = useState('');
-  const [addBottle, { error }] = useMutation(ADD_BOTTLE);
+  const [addBottle] = useMutation(ADD_BOTTLE);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     // console.log(event.target.value); // Development //
     setBottleText(value);
   };
@@ -16,7 +16,7 @@ const BottleForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addBottle({
+       await addBottle({
         variables: {
           bottleText,
           bottleAuthor: Auth.getProfile().data.username,

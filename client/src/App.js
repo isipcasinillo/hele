@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 // Construct our main GraphQL API endpoint

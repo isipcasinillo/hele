@@ -10,3 +10,15 @@ export const QUERY_ALL_USERS = gql`
     }
   }
 `
+
+
+export const QUERY_BOTTLES = gql`
+  query getBottles {
+    Bottles {
+      _id
+      bottleAuthor
+      bottleText
+      createdAt
+    }
+  }
+`;
