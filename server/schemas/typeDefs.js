@@ -22,7 +22,7 @@ const typeDefs = gql`
   type Query {
     getUser(username: String!): User
     getUsers: [User]
-    getBottles(id: String): [Bottle]
+    getBottles(BottleAuthor: String): [Bottle]
   }
   type Mutation {
     # Create or login in and return the AUTH type

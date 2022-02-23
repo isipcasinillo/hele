@@ -23,6 +23,11 @@ const userSchema = new Schema({
       ref: 'Bottle',
     },
   ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
 });
 
 // set up pre-save middleware to create password

@@ -34,11 +34,12 @@ const BottleForm = () => {
       <form onSubmit={handleFormSubmit}>
         <input
           placeholder="How much Ounce"
-          name="bottleName"
+          name="bottleText"
           type="text"
           value={bottleText}
           onChange={handleChange}
         />
+        
         <button type="submit">Add Bottle</button>
       </form>
     </>

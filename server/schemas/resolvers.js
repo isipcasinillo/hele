@@ -10,8 +10,8 @@ const resolvers = {
     getUser: async () => {
       return User.findOne({ username }).populate('bottles');
     },
-    getBottles: async (parent, { id }) => {
-      return Bottle.find()
+    getBottles: async (parent, { BottleAuthor }) => {
+      return Bottle.find({bottleAuthor: BottleAuthor})
     }
   },
   Mutation: {
