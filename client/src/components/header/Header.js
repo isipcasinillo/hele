@@ -11,13 +11,14 @@ const Header = () => {
   };
   return (
     <>
-      <div>This is the Header</div>
       <div>
         {Auth.loggedIn() ? (
-          <span>you are logged in</span>
+          <>
+            <span>Hey there, {Auth.getProfile().data.username}!</span>
+            <Button onClick={logout}>Logout</Button>
+          </>
         ) : (
           <>
-            <span>you are logged out</span>
             <Link className="btn btn-lg btn-info m-2" to="/login">
               Login
             </Link>
@@ -27,7 +28,6 @@ const Header = () => {
           </>
         )}
       </div>
-      <Button onClick={logout}>Logout</Button>
     </>
   );
 };

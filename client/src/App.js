@@ -44,19 +44,18 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           <Header />
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
           <Route exact path="/login">
             <Login />
           </Route>
-          <BottleForm />
         </Router>
       </ApolloProvider>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
