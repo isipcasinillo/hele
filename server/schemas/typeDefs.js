@@ -12,7 +12,9 @@ const typeDefs = gql`
     _id: ID
     bottleText: String
     bottleAuthor: String
+    bottleTime: String
     createdAt: String
+    updatedAt: String
   }
   # Authenticate incoming data from create or login
   type Auth {
@@ -30,7 +32,12 @@ const typeDefs = gql`
     # Login user with Auth
     login(email: String!, password: String!): Auth
     # Add new Bottle to Database
-    addBottle(bottleText: String!, bottleAuthor: String!): Bottle
+    addBottle(
+      bottleText: String!
+      bottleAuthor: String!
+      bottleTime: String!
+    ): Bottle
+    removeBottle(_id: ID!): Bottle
   }
 `;
 

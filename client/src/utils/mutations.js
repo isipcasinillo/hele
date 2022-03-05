@@ -25,11 +25,20 @@ export const CREATE_USER = gql`
 `;
 
 export const ADD_BOTTLE = gql`
-  mutation addBottle($bottleText: String!, $bottleAuthor: String!) {
-    addBottle(bottleText: $bottleText, bottleAuthor: $bottleAuthor) {
+  mutation addBottle(
+    $bottleText: String!
+    $bottleAuthor: String!
+    $bottleTime: String!
+  ) {
+    addBottle(
+      bottleText: $bottleText
+      bottleAuthor: $bottleAuthor
+      bottleTime: $bottleTime
+    ) {
       createdAt
       bottleText
       bottleAuthor
+      bottleTime
     }
   }
 `;

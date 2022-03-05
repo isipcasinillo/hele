@@ -11,8 +11,8 @@ const resolvers = {
       return User.findOne({ username }).populate('bottles');
     },
     getBottles: async (parent, { BottleAuthor }) => {
-      return Bottle.find({bottleAuthor: BottleAuthor})
-    }
+      return Bottle.find({ bottleAuthor: BottleAuthor });
+    },
   },
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
@@ -38,10 +38,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addBottle: async (parent, { bottleAuthor, bottleText }) => {
+    addBottle: async (parent, { bottleAuthor, bottleText, bottleTime }) => {
       return Bottle.create({
         bottleAuthor,
         bottleText,
+        bottleTime,
+      });
+    },
+    removeBottle: async (parent, { _id }) => {
+      return Bottle.findOneAndRemove({
+        _id: _id,
       });
     },
   },

@@ -5,19 +5,23 @@ const bottleSchema = new Schema({
   bottleText: {
     type: String,
     // required: 'You need to leave a bottle!',
-    trim: true,
+    // trim: true,
   },
   bottleAuthor: {
     type: String,
     // required: true,
     trim: true,
   },
+  bottleTime: {
+    type: String,
+  },
   createdAt: {
     type: Date,
+    immutable: true,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  createdAt: {
+  upDatedAt: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
