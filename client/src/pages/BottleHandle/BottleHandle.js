@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
-import BottleList from '../../components/BottleList/BottleList';
-import BottleForm from '../../components/BottleForm/BottleForm';
+import BottleList from '../../components/bottleList/BottleList';
+import BottleForm from '../../components/bottleForm/BottleForm';
 import Auth from '../../utils/auth';
 import { QUERY_BOTTLES } from '../../utils/query';
 const BottleHandle = () => {
