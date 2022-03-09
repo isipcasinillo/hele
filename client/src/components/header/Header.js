@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
-import Button from 'react-bootstrap/button';
+import {Button} from 'react-bootstrap';
 import {Navbar, Nav, Container} from 'react-bootstrap'
 const Header = () => {
   const logout = (event) => {
