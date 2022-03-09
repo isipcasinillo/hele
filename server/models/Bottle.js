@@ -4,16 +4,17 @@ const dateFormat = require('../utils/dateFormat');
 const bottleSchema = new Schema({
   bottleText: {
     type: String,
-    // required: 'You need to leave a bottle!',
+    required: 'You need to leave a bottle ammount!',
     // trim: true,
   },
   bottleAuthor: {
     type: String,
-    // required: true,
+    required: 'You need to be signed in!',
     trim: true,
   },
   bottleTime: {
     type: String,
+    required: 'You need to enter time'
   },
   createdAt: {
     type: Date,

@@ -6,13 +6,15 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import BottleProvider from './utils/BottleContext';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+// import { BottleProvider } from './utils/BottleContext';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Header from './components/Header/Header';
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,12 +43,14 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <BottleProvider>
+        {/* < BottleProvider> */}
           <Router>
             <Header />
             <Route exact path="/">
               <Home />
             </Route>
+            
+            
             <Route exact path="/signup">
               <Signup />
             </Route>
@@ -54,7 +58,7 @@ function App() {
               <Login />
             </Route>
           </Router>
-        </BottleProvider>
+          {/* </BottleProvider> */}
       </ApolloProvider>
       {/* <Footer /> */}
     </>

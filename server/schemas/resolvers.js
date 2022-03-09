@@ -11,9 +11,10 @@ const resolvers = {
       return User.findOne({ username }).populate('bottles');
     },
     getBottles: async (parent, { BottleAuthor }) => {
-      return Bottle.find({ bottleAuthor: BottleAuthor });
+      return Bottle.find({ bottleAuthor: BottleAuthor }).sort({createdAt: -1});
     },
   },
+  // .sort([['createdAt', -1]]) 
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -46,10 +47,16 @@ const resolvers = {
       });
     },
     removeBottle: async (parent, { _id }) => {
-      return Bottle.findOneAndRemove({
-        _id: _id,
-      });
+      return Bottle.findByIdAndDelete(_id)
     },
+    updateBottle: async(parent, {_id, bottleText, bottleTime}) => {
+      return Bottle.findByIdAndUpdate(_id, {
+        $set: {
+          bottleText: bottleText,
+          bottleTime: bottleTime
+        }
+      })
+    }
   },
 };
 

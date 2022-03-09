@@ -42,3 +42,17 @@ export const ADD_BOTTLE = gql`
     }
   }
 `;
+export const REMOVE_BOTTLE = gql`
+mutation removeBottle($bottleId: ID!) {
+  removeBottle(_id:$bottleId){
+    _id
+  }
+}
+`
+export const UPDATE_BOTTLE = gql`
+mutation updateBottle($_id: ID!, $bottleText:String, $bottleTime:String){
+  updateBottle(_id: $_id, bottleText:$bottleText, bottleTime:$bottleTime){
+    bottleText
+    bottleTime
+  }
+}`

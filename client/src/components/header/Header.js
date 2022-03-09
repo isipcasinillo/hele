@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 import Button from 'react-bootstrap/button';
-
+import {Navbar, Nav, Container} from 'react-bootstrap'
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -11,7 +11,12 @@ const Header = () => {
   };
   return (
     <>
-      <div>
+        <Navbar bg="primary" variant="dark">
+          <Container>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav>
+          <div>
         {Auth.loggedIn() ? (
           <>
             <span>Hey there, {Auth.getProfile().data.username}!</span>
@@ -28,8 +33,12 @@ const Header = () => {
           </>
         )}
       </div>
+         
+          </Container>
+        </Navbar>
     </>
   );
 };
 
 export default Header;
+
