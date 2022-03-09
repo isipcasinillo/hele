@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "homepage": "https://github.com/isipcasinillo//hele",
   "engines": {
     "node": "16.4.2"
   },
@@ -12,6 +13,10 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isipcasinillo/hele.git"
   },
   "keywords": [],
   "author": "",
