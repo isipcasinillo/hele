@@ -1,6 +1,36 @@
 .card {
-    height: 100px;
-    width: 300px;
-    margin-bottom: 20px;
-    background-color: black;
+  height: 100px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn {
+  height: 40px;
+  width: 90px;
+}
+
+.card-mini {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.input {
+  width: 85px;
+}
+
+.btn-dng {
+  background-color: #ee3232;
+}
+
+.btn-dng {
+  background-color: #e2e2e2;
 }

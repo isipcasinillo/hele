@@ -5,12 +5,13 @@ import { ADD_BOTTLE } from '../../utils/mutations';
 // import { useBottleContext } from '../../utils/BottleContext';
 // import { useUpdateBottleContext } from '../../utils/BottleContext';
 import { QUERY_BOTTLES } from '../../utils/query';
-const BottleForm = ({loadBottles}) => {
+import './BottleForm.css';
+const BottleForm = ({ loadBottles }) => {
   const [bottleText, setBottleText] = useState('');
   const [bottleTime, setBottleTime] = useState('');
   // const loadBottles = useUpdateBottleContext();
   const [addBottle] = useMutation(ADD_BOTTLE);
-  
+
   const handleChange = (event) => {
     const { value } = event.target;
     // console.log(event.target.value); // Development //
@@ -36,17 +37,16 @@ const BottleForm = ({loadBottles}) => {
         },
         refetchQueries: [{ query: QUERY_BOTTLES }],
       });
-      loadBottles()
+      loadBottles();
       setBottleText('');
-      setBottleTime('')
+      setBottleTime('');
     } catch (e) {
       console.log(e);
     }
   };
   return (
     <>
-      <div>BottleForm</div>
-      <form onSubmit={handleFormSubmit}>
+      <form className="bottle-form" onSubmit={handleFormSubmit}>
         <input
           placeholder="How much Ounce"
           name="bottleText"
@@ -54,9 +54,15 @@ const BottleForm = ({loadBottles}) => {
           value={bottleText}
           onChange={handleChange}
         />
-        <input type="time" name="bottleTime" value={bottleTime} onChange={handleChangeTime}/>
+        <input
+          style={{ margin: '20px 0px 20px 0px' }}
+          type="time"
+          name="bottleTime"
+          value={bottleTime}
+          onChange={handleChangeTime}
+        />
 
-        <button type="submit" onClick={() => {}}>
+        <button className="btn-add" type="submit" onClick={() => {}}>
           Add Bottle
         </button>
       </form>
