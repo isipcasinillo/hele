@@ -107,12 +107,14 @@ const Login = () => {
                 </div>
               </form>
             )}
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
           </div>
         </div>
       </div>
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-      )}
     </div>
   );
 };
