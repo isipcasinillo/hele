@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import './Signup.css';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
-
+import Button from 'react-bootstrap/Button';
 import Auth from '../utils/auth';
 
+import duck from './duck.png';
 const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
@@ -41,61 +43,97 @@ const Signup = () => {
   };
 
   return (
-    <main>
-      <div>
-        <div>
-          <h4 className="">Sign Up</h4>
+    <div>
+      <div className="card-form">
+        <div className="card-container">
+          <div>
+            <img src={duck} width="300" height="300" />
+          </div>
           <div>
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link href="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form
+                onSubmit={handleFormSubmit}
+                className="formx"
+                // style={{
+                //   display: 'flex',
+                //   flexDirection: 'column',
+                //   justifyContent: 'center',
+                //   alignItems: 'center',
+                //   alignSelf: 'center',
+                // }}
+              >
+                <div
+                  style={{
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                >
+                  Username
+                </div>
                 <input
-                  className="form-input"
-                  placeholder="Your username"
+                  className="w300"
+                  placeholder="  Enter username"
                   name="username"
                   type="text"
                   value={formState.username}
                   onChange={handleChange}
                 />
+                <div
+                  style={{
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                >
+                  Email
+                </div>
                 <input
-                  className="form-input"
-                  placeholder="Your email"
+                  className="w300"
+                  placeholder="  Enter email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                <div
+                  style={{
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                >
+                  Password
+                </div>
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  className="w300"
+                  placeholder="  ********"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                <div>
+                  <Button
+                    style={{ cursor: 'pointer', marginTop: '20px' }}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </form>
             )}
-
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+                Please check your credentials
               </div>
             )}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
