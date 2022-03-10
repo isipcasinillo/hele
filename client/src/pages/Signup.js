@@ -123,6 +123,22 @@ const Signup = () => {
                     Submit
                   </Button>
                 </div>
+                <div
+                  style={{
+                    fontStyle: 'italic',
+                  }}
+                >
+                  Already have an account?
+                  <Link
+                    to="/login"
+                    style={{
+                      fontStyle: 'normal',
+                      marginLeft: '3px',
+                    }}
+                  >
+                    Login
+                  </Link>
+                </div>
               </form>
             )}
             {error && (
