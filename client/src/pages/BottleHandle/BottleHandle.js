@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import BottleList from '../../components/bottleList/BottleList';
 import BottleForm from '../../components/bottleForm/BottleForm';
+import Dashboard from '../../components/Dashboard/Dashboard';
 import Auth from '../../utils/auth';
 import { QUERY_BOTTLES } from '../../utils/query';
 const BottleHandle = () => {
@@ -20,6 +21,7 @@ const BottleHandle = () => {
         justifyContent: 'center',
       }}
     >
+      <Dashboard />
       <BottleForm loadBottles={loadBottles} />
       <div style={{ marginTop: '10px' }}>
         <BottleList bottleData={bote} loadBottles={loadBottles} />

@@ -43,13 +43,11 @@ const Signup = () => {
   };
 
   return (
-    <div
-      className="signup-container"
-    >
+    <div className="signup-container">
       <div className="card-form">
         <div className="card-container">
           <div>
-            <img src={duck} width="300" height="300" />
+            <img src={duck} width="300" alt="baby-bottle" height="300" />
           </div>
           <div>
             {data ? (

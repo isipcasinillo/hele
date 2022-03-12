@@ -1,9 +1,8 @@
 .card {
-  height: 100px;
-  width: 500px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  height: 100px;
+  width: 500px;
 }
 
 .btn-container {
@@ -19,7 +18,7 @@
 
 .card-mini {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
 }
 
@@ -33,4 +32,9 @@
 
 .btn-dng {
   background-color: #e2e2e2;
+}
+
+.img-cute {
+  height: 50px;
+  width: 50px;
 }

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
-import { useUpdateBottleContext } from '../../utils/BottleContext';
 // import { useUpdateBottleContext } from '../../utils/BottleContext'
-
+import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const [bottleTextState, setBottleTextState] = useState(bottleText);
@@ -52,20 +51,27 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   };
   return (
     <div
-      className="card"
       style={{
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
+        alignItems: 'center',
         backgroundColor: '#e2e2e2',
+        height: '100px',
+        width: '500px',
       }}
     >
       <div className="card-mini">
+        <div>
+          <img src={bottlecute} className="img-cute" alt="bottle-cute" />
+        </div>
+        <div>
+          <div className="card-text">{bottleTimeState} AM</div>
+          <div className="card-text">{bottleTextState} oz</div>
+        </div>
+
         {!onUpdate ? (
-          <>
-            <div className="card-text">{bottleTimeState} AM</div>
-            <div className="card-text">{bottleTextState} oz</div>
-          </>
+          <></>
         ) : (
           <>
             <input
@@ -83,7 +89,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
           </>
         )}
       </div>
-      <div className="btn-container">
+      {/* <div className="btn-container">
         {!onUpdate ? (
           <button
             className="btn btn-dng"
@@ -100,7 +106,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
         <button className="btn" onClick={ToggleupdateHandler}>
           Edit
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

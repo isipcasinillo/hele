@@ -13,7 +13,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Header from './components/header/Header';
 //hello
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,21 +44,16 @@ function App() {
     <>
       <ApolloProvider client={client}>
         {/* < BottleProvider> */}
-          <Router>
-            <Header />
-            <Route exact path="/">
-              <Home />
-            </Route>
-            
-            
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-          </Router>
-          {/* </BottleProvider> */}
+        <Router>
+          <Header />
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/signup" component={Signup}/>
+          <Route exact path="/login">
+          <Route exact path="/bottle/:id"/>
+            <Login />
+          </Route>
+        </Router>
+        {/* </BottleProvider> */}
       </ApolloProvider>
       {/* <Footer /> */}
     </>
