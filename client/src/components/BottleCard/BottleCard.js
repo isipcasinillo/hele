@@ -4,6 +4,7 @@ import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
 // import { useUpdateBottleContext } from '../../utils/BottleContext'
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
+import { useHistory } from "react-router-dom";
 const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const [bottleTextState, setBottleTextState] = useState(bottleText);
   const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
@@ -12,7 +13,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const [removeBottle] = useMutation(REMOVE_BOTTLE);
   const [updateBottle] = useMutation(UPDATE_BOTTLE);
   const [onUpdate, setonUpdate] = useState(false);
-
+  const history = useHistory();
   const handleChangeText = (event) => {
     const { value } = event.target;
     // console.log(event.target.value); // Development //
@@ -49,27 +50,40 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
     setBottleTextState(bottleText);
     setBottleTimeState(bottleTime);
   };
+
+  const linktobottle = () => {
+    history.push(`/bottle/${bottleIdx}`)
+  }
   return (
-    <div
+    <div className="card"
       style={{
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#e2e2e2',
+        backgroundColor: '#ffa238',
         height: '100px',
-        width: '500px',
+        width: '300px',
+        marginBottom: '10px',
+        borderRadius: '20px'
       }}
+      onClick={() => linktobottle()}
     >
       <div className="card-mini">
-        <div>
-          <img src={bottlecute} className="img-cute" alt="bottle-cute" />
+        <div className="pls "style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'space-between',
+          justifyContent: 'space-evenly',
+        }}>
+          <div>
+            <img src={bottlecute} className="img-cute" alt="bottle-cute" />
+          </div>
+          <div>
+            <div className="card-text">{bottleTimeState} AM</div>
+            <div className="card-text">{bottleTextState} oz</div>
+          </div>
         </div>
-        <div>
-          <div className="card-text">{bottleTimeState} AM</div>
-          <div className="card-text">{bottleTextState} oz</div>
-        </div>
-
         {!onUpdate ? (
           <></>
         ) : (

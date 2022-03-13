@@ -1,9 +1,9 @@
-.card {
+/* .card {
   display: flex;
   flex-direction: row;
   height: 100px;
   width: 500px;
-}
+} */
 
 .btn-container {
   display: flex;
@@ -19,7 +19,7 @@
 .card-mini {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .input {
@@ -37,4 +37,8 @@
 .img-cute {
   height: 50px;
   width: 50px;
+}
+
+.pls {
+  width: 300px;
 }
