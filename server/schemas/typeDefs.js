@@ -25,6 +25,7 @@ const typeDefs = gql`
     getUser(username: String!): User
     getUsers: [User]
     getBottles(BottleAuthor: String): [Bottle]
+    getSingleBottle(BottleAuthor: String): Bottle
   }
   type Mutation {
     # Create or login in and return the AUTH type

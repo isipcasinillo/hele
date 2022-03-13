@@ -4,7 +4,7 @@ import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
 // import { useUpdateBottleContext } from '../../utils/BottleContext'
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const [bottleTextState, setBottleTextState] = useState(bottleText);
   const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
@@ -52,10 +52,11 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   };
 
   const linktobottle = () => {
-    history.push(`/bottle/${bottleIdx}`)
-  }
+    history.push(`/bottle/${bottleIdx}`);
+  };
   return (
-    <div className="card"
+    <div
+      className="card"
       style={{
         display: 'flex',
         flexDirection: 'row',
@@ -65,17 +66,20 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
         height: '100px',
         width: '300px',
         marginBottom: '10px',
-        borderRadius: '20px'
+        borderRadius: '20px',
       }}
       onClick={() => linktobottle()}
     >
       <div className="card-mini">
-        <div className="pls "style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'space-between',
-          justifyContent: 'space-evenly',
-        }}>
+        <div
+          className="pls "
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'space-between',
+            justifyContent: 'space-evenly',
+          }}
+        >
           <div>
             <img src={bottlecute} className="img-cute" alt="bottle-cute" />
           </div>
