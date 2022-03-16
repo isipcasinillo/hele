@@ -4,9 +4,9 @@ import Auth from '../../utils/auth';
 import { ADD_BOTTLE } from '../../utils/mutations';
 // import { useBottleContext } from '../../utils/BottleContext';
 // import { useUpdateBottleContext } from '../../utils/BottleContext';
-import { QUERY_BOTTLES } from '../../utils/query';
+import { QUERY_BOTTLES, QUERY_SINGLE_BOTTLE } from '../../utils/query';
 import './BottleForm.css';
-const BottleForm = ({ loadBottles }) => {
+const BottleForm = ({ loadBottles, reloadDash }) => {
   const [bottleText, setBottleText] = useState('');
   const [bottleTime, setBottleTime] = useState('');
   // const loadBottles = useUpdateBottleContext();
@@ -35,9 +35,10 @@ const BottleForm = ({ loadBottles }) => {
           bottleTime,
           bottleAuthor: Auth.getProfile().data.username,
         },
-        refetchQueries: [{ query: QUERY_BOTTLES }],
+        refetchQueries: [{ query: QUERY_SINGLE_BOTTLE}],
       });
       loadBottles();
+      reloadDash();
       setBottleText('');
       setBottleTime('');
     } catch (e) {

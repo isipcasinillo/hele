@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_SINGLE_BOTTLE = gql`
-  query getSingleBottle($bottleAuthor: String) {
-    getSingleBottle(BottleAuthor: $bottleAuthor) {
-      bottleTime
-    }
+  query getSingleBottle($BottleAuthor: String) {
+    getSingleBottle(BottleAuthor: $BottleAuthor){
+    bottleTime
+  }
   }
 `;
 

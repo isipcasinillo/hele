@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState,  } from 'react';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_SINGLE_BOTTLE } from '../../utils/query';
-
+import Moment from 'react-moment';
+import moment from 'moment'
 import Auth from '../../utils/auth';
-export default function Dashboard() {
-  const [currentDate, setcurrentDate] = useState('');
-  const { data } = useQuery(QUERY_SINGLE_BOTTLE, {
-    variables: { bottleAuthor: Auth.getProfile().data.username },
-  });
-  const result = data?.getSingleBottle.bottleTime;
-  useEffect(() => {
-    setcurrentDate(result);
-  });
-  const m = moment();
-  console.log(m);
-  // console.log(currentResult);
+export default function Dashboard({dataSingleBottle}) {
+  // const [usewuery, { data } ]= useLazyQuery(QUERY_SINGLE_BOTTLE, {
+  //   variables: { BottleAuthor: Auth.getProfile().data.username },
+  // });
+
+  // useEffect(()=> {
+  //   usewuery()
+  // }, [])
+  // const singleBottleResult = data?.getSingleBottle.bottleTime
+  // const recentBottleDate = new Date(singleBottleResult)
   return (
     <>
-      <div>{currentDate}</div>
+    <div>
+      Last feeding was <Moment fromNow>{dataSingleBottle}</Moment>
+    </div>
     </>
   );
 }

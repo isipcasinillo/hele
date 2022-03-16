@@ -16,7 +16,7 @@ const resolvers = {
       });
     },
     getSingleBottle: async (parent, { BottleAuthor }) => {
-      return Bottle.findOne({ bottleAuthor: BottleAuthor }).sort({
+      return Bottle.findOne({ BottleAuthor: BottleAuthor }).sort({
         createdAt: -1,
       });
     },

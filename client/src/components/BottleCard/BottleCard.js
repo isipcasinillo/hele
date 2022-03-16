@@ -16,6 +16,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const history = useHistory();
   const handleChangeText = (event) => {
     const { value } = event.target;
+   
     // console.log(event.target.value); // Development //
     setBottleTextState(value);
   };
@@ -24,7 +25,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
     // console.log(event.target.value); // Development //
     setBottleTimeState(value);
   };
-
+  
   const deleteBottleHandle = async (bottleId) => {
     removeBottle({
       variables: {
@@ -54,6 +55,7 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
   const linktobottle = () => {
     history.push(`/bottle/${bottleIdx}`);
   };
+
   return (
     <div
       className="card"
@@ -84,7 +86,8 @@ const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
             <img src={bottlecute} className="img-cute" alt="bottle-cute" />
           </div>
           <div>
-            <div className="card-text">{bottleTimeState} AM</div>
+            <div className="card-text">{new Date(bottleTimeState).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
+            
             <div className="card-text">{bottleTextState} oz</div>
           </div>
         </div>
