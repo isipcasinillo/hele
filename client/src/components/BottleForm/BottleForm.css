@@ -1,0 +1,12 @@
+.bottle-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.btn-add {
+  width: 200px;
+  height: 60px;
+  background-color: rgb(64, 134, 246);
+}
