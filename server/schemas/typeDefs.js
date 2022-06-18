@@ -6,13 +6,12 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    bottles: [Bottle]!
   }
   type Bottle {
     _id: ID
-    bottleText: String
-    bottleAuthor: String
-    bottleTime: String
+    bottleText: String!
+    bottleAuthor: String!
+    bottleTime: String!
     createdAt: String
     updatedAt: String
   }
@@ -25,7 +24,8 @@ const typeDefs = gql`
     getUser(username: String!): User
     getUsers: [User]
     getBottles(BottleAuthor: String): [Bottle]
-    getSingleBottle(BottleAuthor: String): Bottle
+    getSingleBottle(_id: ID): Bottle
+    getBottlesByUser(username: String): User
   }
   type Mutation {
     # Create or login in and return the AUTH type
@@ -39,7 +39,7 @@ const typeDefs = gql`
       bottleTime: String!
     ): Bottle
     updateBottle(_id: ID!,bottleText: String, bottleTime: String): Bottle
-    removeBottle(_id: ID!): Bottle
+    removeBottle(_id: ID): Bottle
   }
 `;
 

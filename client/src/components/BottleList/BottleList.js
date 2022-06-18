@@ -1,24 +1,30 @@
 import React from 'react';
 import BottleCard from '../BottleCard/BottleCard';
+import { useQuery } from '@apollo/client';
+import { QUERY_BOTTLES } from '../../utils/query'
+import Auth from '../../utils/auth'
 
-const BottleList = ({ bottleData, loadBottles }) => {
-  // const  { data } = useQuery(QUERY_BOTTLES, {
-  //   variables: { BottleAuthor: Auth.getProfile().data.username },
-  // });
-  // const bote = data?.getBottles;
+const BottleList = () => {
+  const query = useQuery(QUERY_BOTTLES, {
+    variables: {
+      BottleAuthor: Auth.getProfile().data.username
+    }
+  })
+  const queryList = query.data?.getBottles
+
   return (
     <>
-      {bottleData &&
-        bottleData.map((bottles) => (
+    <div>
+      {queryList &&
+        queryList.map((bottles) => (
           <BottleCard
-            loadBottles={loadBottles}
-            // deleteBottleHandle={deleteBottleHandle}
             key={bottles._id}
             bottleIdx={bottles._id}
             bottleText={bottles.bottleText}
             bottleTime={bottles.bottleTime}
           />
         ))}
+    </div>
     </>
   );
 };

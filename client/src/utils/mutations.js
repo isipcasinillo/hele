@@ -43,8 +43,8 @@ export const ADD_BOTTLE = gql`
   }
 `;
 export const REMOVE_BOTTLE = gql`
-mutation removeBottle($bottleId: ID!) {
-  removeBottle(_id:$bottleId){
+mutation removeBottle($id: ID) {
+  removeBottle(_id:$id){
     _id
   }
 }

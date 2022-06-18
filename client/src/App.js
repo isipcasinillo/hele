@@ -7,7 +7,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { BottleProvider } from './utils/BottleContext';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -15,7 +14,7 @@ import Header from './components/header/Header';
 import BottleSingle from './components/BottleSingle/BottleSingle'
 //hello
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {BottleProvider} from './utils/BottleContext'
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,15 +43,15 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        {/* < BottleProvider> */}
-        <Router>
-          <Header />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/signup" component={Signup}/>
-          <Route exact path="/login"/>
-          <Route exact path="/bottle/:id" component={BottleSingle}/>
-        </Router>
-        {/* </BottleProvider> */}
+        <BottleProvider>
+          <Router>
+            <Header />
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/signup" component={Signup}/>
+            <Route exact path="/login"component={Login}/>
+            <Route exact path="/bottle/:id" component={BottleSingle}/>
+          </Router>
+        </BottleProvider>
       </ApolloProvider>
       {/* <Footer /> */}
     </>

@@ -1,16 +1,20 @@
 import React from 'react';
 import Auth from '../utils/auth';
-
-import BottleHandle from '../pages/BottleHandle/BottleHandle';
 import Login from './Login';
 import './Home.css';
+import BottleForm from '../components/BottleForm/BottleForm';
+import BottleList from '../components/BottleList/BottleList';
+import Dashboard from '../components/Dashboard/Dashboard';
 const Home = () => {
   return (
     <div className="homewrap">
       {Auth.loggedIn() ? (
         <>
-         
-          <BottleHandle />
+        <div>
+          <Dashboard/>
+          <BottleForm/> 
+        </div>
+          <BottleList/> 
         </>
       ) : (
         <Login />

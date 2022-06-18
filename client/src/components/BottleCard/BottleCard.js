@@ -1,59 +1,31 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
-// import { useUpdateBottleContext } from '../../utils/BottleContext'
+// import { useMutation } from '@apollo/client';
+// import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 import { useHistory } from 'react-router-dom';
-const BottleCard = ({ loadBottles, bottleIdx, bottleText, bottleTime }) => {
+
+const BottleCard = ({  bottleIdx, bottleText, bottleTime }) => {
   const [bottleTextState, setBottleTextState] = useState(bottleText);
   const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
-  // const [bottleTextState, setBottleTextState] = useState('');
-  // const loadBottles = useUpdateBottleContext();
-  const [removeBottle] = useMutation(REMOVE_BOTTLE);
-  const [updateBottle] = useMutation(UPDATE_BOTTLE);
+
   const [onUpdate, setonUpdate] = useState(false);
   const history = useHistory();
+
   const handleChangeText = (event) => {
     const { value } = event.target;
-   
-    // console.log(event.target.value); // Development //
     setBottleTextState(value);
   };
+
   const handleChangeTime = (event) => {
     const { value } = event.target;
-    // console.log(event.target.value); // Development //
+
     setBottleTimeState(value);
   };
   
-  const deleteBottleHandle = async (bottleId) => {
-    removeBottle({
-      variables: {
-        bottleId,
-      },
-    });
-    loadBottles();
-  };
-  const updateBottleHandle = async () => {
-    updateBottle({
-      variables: {
-        _id: bottleIdx,
-        bottleText: bottleTextState,
-        bottleTime: bottleTimeState,
-      },
-    });
-    loadBottles();
-    setonUpdate((prev) => !prev);
-  };
 
-  const ToggleupdateHandler = () => {
-    setonUpdate((prev) => !prev);
-    setBottleTextState(bottleText);
-    setBottleTimeState(bottleTime);
-  };
-
-  const linktobottle = () => {
-    history.push(`/bottle/${bottleIdx}`);
+  function linktobottle() {
+    history.push(`/bottle/${bottleIdx}`);  
   };
 
   return (

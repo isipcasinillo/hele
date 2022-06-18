@@ -11,17 +11,15 @@ const resolvers = {
       return User.findOne({ username }).populate('bottles');
     },
     getBottles: async (parent, { BottleAuthor }) => {
-      return Bottle.find({ bottleAuthor: BottleAuthor }).sort({
+      return await Bottle.find({ bottleAuthor: BottleAuthor }).sort({
         createdAt: -1,
       });
     },
-    getSingleBottle: async (parent, { BottleAuthor }) => {
-      return Bottle.findOne({ BottleAuthor: BottleAuthor }).sort({
-        createdAt: -1,
-      });
-    },
+    getSingleBottle: async (parent, { _id }) => {
+      return await Bottle.findById({ _id: _id });
+    }
   },
-  // .sort([['createdAt', -1]])
+
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -54,7 +52,7 @@ const resolvers = {
       });
     },
     removeBottle: async (parent, { _id }) => {
-      return Bottle.findByIdAndDelete(_id);
+      return await Bottle.findByIdAndDelete( _id);
     },
     updateBottle: async (parent, { _id, bottleText, bottleTime }) => {
       return Bottle.findByIdAndUpdate(_id, {

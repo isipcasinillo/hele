@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const userSchema = new Schema({
   username: {
     type: String,
@@ -21,8 +20,7 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Bottle',
-    },
-  ],
+    }],
   createdAt: {
     type: Date,
     default: Date.now,
