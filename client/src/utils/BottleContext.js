@@ -22,7 +22,7 @@ export const BottleProvider = ({ children }) => {
     // variables: { BottleAuthor: Auth.getProfile().data.username },
  );
 
-  const [loadSingleBottle, {status}] = useLazyQuery(QUERY_SINGLE_BOTTLE)
+  // const [loadSingleBottle, {status}] = useLazyQuery(QUERY_SINGLE_BOTTLE)
   const [deleteBottle] = useMutation(REMOVE_BOTTLE)
 
 

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState}from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BottleContext from '../../utils/BottleContext'
 import {useHistory} from 'react-router-dom'
@@ -23,11 +23,11 @@ export default function Single() {
 
   useEffect(async()=> {
     GetSingleBottle(id)
-  },[])
+  }, [])
 
   const DeleteAndRefresh = async () => {
     await deleteBottleHandler(id)
-    history.push('/')
+    navigate('/')
   }
 
   return (
