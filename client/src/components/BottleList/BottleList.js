@@ -10,21 +10,22 @@ const BottleList = () => {
       BottleAuthor: Auth.getProfile().data.username
     }
   })
+  console.log(query)
   const queryList = query.data?.getBottles
-
+  console.log(queryList)
   return (
     <>
-    <div>
-      {queryList &&
-        queryList.map((bottles) => (
-          <BottleCard
-            key={bottles._id}
-            bottleIdx={bottles._id}
-            bottleText={bottles.bottleText}
-            bottleTime={bottles.bottleTime}
-          />
-        ))}
-    </div>
+      <div>
+        {queryList &&
+          queryList.map((bottles) => (
+            <BottleCard
+              key={bottles._id}
+              bottleIdx={bottles._id}
+              bottleText={bottles.bottleText}
+              bottleTime={bottles.bottleTime}
+            />
+          ))}
+      </div>
     </>
   );
 };

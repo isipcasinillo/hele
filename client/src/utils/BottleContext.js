@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_BOTTLES, QUERY_SINGLE_BOTTLE } from '../utils/query';
-import {REMOVE_BOTTLE, ADD_BOTTLE} from '../utils/mutations'
+import { REMOVE_BOTTLE, ADD_BOTTLE } from '../utils/mutations'
 
 import Auth from '../utils/auth';
 
@@ -14,25 +14,25 @@ export const BottleProvider = ({ children }) => {
   const [fetchBottles] = useLazyQuery(QUERY_BOTTLES)
   const [bottleText, setBottleText] = useState('');
   const [bottleTime, setBottleTime] = useState('');
-  const [bottleTextState, setSingleBottleText]= useState('')
-  const [bottleTimeState, setSingleBottleTime]= useState('')
-  const [loadBottles, {data}] = useLazyQuery(QUERY_BOTTLES
+  const [bottleTextState, setSingleBottleText] = useState('')
+  const [bottleTimeState, setSingleBottleTime] = useState('')
+  const [loadBottles, { data }] = useLazyQuery(QUERY_BOTTLES
     // fetchPolicy: "network-only",
     // nextFetchPolicy: 'cache-first',
     // variables: { BottleAuthor: Auth.getProfile().data.username },
- );
+  );
 
-  const [loadSingleBottle, {status}] = useLazyQuery(QUERY_SINGLE_BOTTLE)
+  const [loadSingleBottle, { status }] = useLazyQuery(QUERY_SINGLE_BOTTLE)
   const [deleteBottle] = useMutation(REMOVE_BOTTLE)
 
 
   const deleteBottleHandler = async (id) => {
     try {
       await deleteBottle({
-      variables:{ id: id}, 
-        refetchQueries: [{ query: QUERY_BOTTLES, variables: { BottleAuthor: Auth.getProfile().data.username }}]
+        variables: { id: id },
+        refetchQueries: [{ query: QUERY_BOTTLES, variables: { BottleAuthor: Auth.getProfile().data.username } }]
       })
-      
+
       return
     } catch (e) {
       console.log(e)
@@ -50,7 +50,7 @@ export const BottleProvider = ({ children }) => {
           bottleTime,
           bottleAuthor: Auth.getProfile().data.username,
         },
-        refetchQueries: [{ query: QUERY_BOTTLES, variables: { BottleAuthor: Auth.getProfile().data.username }}]
+        refetchQueries: [{ query: QUERY_BOTTLES, variables: { BottleAuthor: Auth.getProfile().data.username } }]
       });
       setBottleText('');
       setBottleTime('');
@@ -60,19 +60,19 @@ export const BottleProvider = ({ children }) => {
   };
 
 
-  
+
   const GetSingleBottle = async (id) => {
-    const responseSingleBottle = await loadSingleBottle({variables: {_id: id}})
-    const {bottleTime, bottleText}= responseSingleBottle.data.getSingleBottle
-    if(bottleText && bottleTime ) {
+    const responseSingleBottle = await loadSingleBottle({ variables: { _id: id } })
+    const { bottleTime, bottleText } = responseSingleBottle.data.getSingleBottle
+    if (bottleText && bottleTime) {
       setSingleBottleText(bottleText)
       setSingleBottleTime(bottleTime)
     }
   }
   return (
     <>
-      <BottleContext.Provider value={{ loadSingleBottle, deleteBottleHandler,handleBottleFormSubmit,setBottleText,setBottleTime ,bottleText,bottleTime,data,bottleTextState,bottleTimeState,GetSingleBottle}}>
-          {children}
+      <BottleContext.Provider value={{ loadSingleBottle, deleteBottleHandler, handleBottleFormSubmit, setBottleText, setBottleTime, bottleText, bottleTime, data, bottleTextState, bottleTimeState, GetSingleBottle }}>
+        {children}
       </BottleContext.Provider>
     </>
   );
