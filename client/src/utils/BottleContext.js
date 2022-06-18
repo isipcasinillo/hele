@@ -14,8 +14,8 @@ export const BottleProvider = ({ children }) => {
   const [fetchBottles] = useLazyQuery(QUERY_BOTTLES)
   const [bottleText, setBottleText] = useState('');
   const [bottleTime, setBottleTime] = useState('');
-  const [bottleTextState, setSingleBottleText]= useState('')
-  const [bottleTimeState, setSingleBottleTime]= useState('')
+  // const [bottleTextState, setSingleBottleText]= useState('')
+  // const [bottleTimeState, setSingleBottleTime]= useState('')
   const [loadBottles, {data}] = useLazyQuery(QUERY_BOTTLES
     // fetchPolicy: "network-only",
     // nextFetchPolicy: 'cache-first',
@@ -61,17 +61,17 @@ export const BottleProvider = ({ children }) => {
 
 
   
-  const GetSingleBottle = async (id) => {
-    const responseSingleBottle = await loadSingleBottle({variables: {_id: id}})
-    const {bottleTime, bottleText}= responseSingleBottle.data.getSingleBottle
-    if(bottleText && bottleTime ) {
-      setSingleBottleText(bottleText)
-      setSingleBottleTime(bottleTime)
-    }
-  }
+  // const GetSingleBottle = async (id) => {
+  //   const responseSingleBottle = await loadSingleBottle({variables: {_id: id}})
+  //   const {bottleTime, bottleText}= responseSingleBottle.data.getSingleBottle
+  //   if(bottleText && bottleTime ) {
+  //     setSingleBottleText(bottleText)
+  //     setSingleBottleTime(bottleTime)
+  //   }
+  // }
   return (
     <>
-      <BottleContext.Provider value={{ loadSingleBottle, deleteBottleHandler,handleBottleFormSubmit,setBottleText,setBottleTime ,bottleText,bottleTime,data,bottleTextState,bottleTimeState,GetSingleBottle}}>
+      <BottleContext.Provider value={{ loadSingleBottle, deleteBottleHandler,handleBottleFormSubmit,setBottleText,setBottleTime ,bottleText,bottleTime,data}}>
           {children}
       </BottleContext.Provider>
     </>

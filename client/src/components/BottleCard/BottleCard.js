@@ -28,6 +28,7 @@ const BottleCard = ({  bottleIdx, bottleText, bottleTime }) => {
     history.push(`/bottle/${bottleIdx}`);  
   };
 
+
   return (
     <div
       className="card"
