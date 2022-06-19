@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useLazyQuery, useMutation } from '@apollo/client';
-import { QUERY_BOTTLES, QUERY_SINGLE_BOTTLE } from '../utils/query';
+import { QUERY_BOTTLES } from '../utils/query';
 import {REMOVE_BOTTLE, ADD_BOTTLE} from '../utils/mutations'
 
 import Auth from '../utils/auth';
@@ -8,21 +8,13 @@ import Auth from '../utils/auth';
 
 const BottleContext = createContext();
 export const BottleProvider = ({ children }) => {
-
-  const [queryOnMutate, setQueryOnMutate] = useState(false)
   const [addBottle] = useMutation(ADD_BOTTLE);
   const [fetchBottles] = useLazyQuery(QUERY_BOTTLES)
   const [bottleText, setBottleText] = useState('');
   const [bottleTime, setBottleTime] = useState('');
-  // const [bottleTextState, setSingleBottleText]= useState('')
-  // const [bottleTimeState, setSingleBottleTime]= useState('')
-  const [loadBottles, {data}] = useLazyQuery(QUERY_BOTTLES
-    // fetchPolicy: "network-only",
-    // nextFetchPolicy: 'cache-first',
-    // variables: { BottleAuthor: Auth.getProfile().data.username },
- );
 
-  // const [loadSingleBottle, {status}] = useLazyQuery(QUERY_SINGLE_BOTTLE)
+  const [loadBottles, {data}] = useLazyQuery(QUERY_BOTTLES);
+
   const [deleteBottle] = useMutation(REMOVE_BOTTLE)
 
 
@@ -60,18 +52,9 @@ export const BottleProvider = ({ children }) => {
   };
 
 
-  
-  // const GetSingleBottle = async (id) => {
-  //   const responseSingleBottle = await loadSingleBottle({variables: {_id: id}})
-  //   const {bottleTime, bottleText}= responseSingleBottle.data.getSingleBottle
-  //   if(bottleText && bottleTime ) {
-  //     setSingleBottleText(bottleText)
-  //     setSingleBottleTime(bottleTime)
-  //   }
-  // }
   return (
     <>
-      <BottleContext.Provider value={{ loadSingleBottle, deleteBottleHandler,handleBottleFormSubmit,setBottleText,setBottleTime ,bottleText,bottleTime,data}}>
+      <BottleContext.Provider value={{ deleteBottleHandler,handleBottleFormSubmit,setBottleText,setBottleTime ,bottleText,bottleTime,data}}>
           {children}
       </BottleContext.Provider>
     </>

@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 import './Login.css';
 import duck from './duck.png';
 const Login = () => {
+  console.log('login')
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
   // updates the UI with every change of the state ((every letter is added))

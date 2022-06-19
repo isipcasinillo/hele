@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Auth from '../utils/auth';
 
 import duck from './duck.png';
+console.log('hello')
 const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
@@ -52,20 +53,12 @@ const Signup = () => {
           <div>
             {data ? (
               <p>
-                Success! You may now head{' '}
-                <Link href="/">back to the homepage.</Link>
+                Success! You are now being directed
               </p>
             ) : (
               <form
                 onSubmit={handleFormSubmit}
                 className="formx"
-                // style={{
-                //   display: 'flex',
-                //   flexDirection: 'column',
-                //   justifyContent: 'center',
-                //   alignItems: 'center',
-                //   alignSelf: 'center',
-                // }}
               >
                 <div
                   style={{

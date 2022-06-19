@@ -3,25 +3,12 @@ import React, { useState } from 'react';
 // import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
-  const [bottleTextState, setBottleTextState] = useState(bottleText);
-  const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
-
-  const handleChangeText = (event) => {
-    const { value } = event.target;
-    setBottleTextState(value);
-  };
-
-  const handleChangeTime = (event) => {
-    const { value } = event.target;
-
-    setBottleTimeState(value);
-  };
-
-
-
+  // const [bottleTextState, setBottleTextState] = useState(bottleText);
+  // const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
+  const navigate = useNavigate()
 
   return (
     <div
@@ -37,8 +24,10 @@ const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
         marginBottom: '10px',
         borderRadius: '20px',
       }}
+      onClick={()=> {
+        navigate(`/bottle/${bottleIdx}`)
+      }}
     >
-      <Link to={`/bottle/${bottleIdx}`}>LINK</Link>
       <div className="card-mini">
         <div
           className="pls "
@@ -53,30 +42,12 @@ const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
             <img src={bottlecute} className="img-cute" alt="bottle-cute" />
           </div>
           <div>
-            <div className="card-text">{new Date(bottleTimeState).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
+            <div className="card-text">{new Date(bottleTime).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
 
-            <div className="card-text">{bottleTextState} oz</div>
+            <div className="card-text">{bottleText} oz</div>
           </div>
         </div>
       </div>
-      {/* <div className="btn-container">
-        {!onUpdate ? (
-          <button
-            className="btn btn-dng"
-            style={{ backgroundColor: '#ee3232', color: 'white' }}
-            onClick={() => deleteBottleHandle(bottleIdx)}
-          >
-            Delete
-          </button>
-        ) : (
-          <button className="btn" onClick={updateBottleHandle}>
-            Update
-          </button>
-        )}
-        <button className="btn" onClick={ToggleupdateHandler}>
-          Edit
-        </button>
-      </div> */}
     </div>
   );
 };

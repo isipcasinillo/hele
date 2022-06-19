@@ -1,30 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
 import BottleContext from '../../utils/BottleContext'
-import {useHistory} from 'react-router-dom'
 import { QUERY_SINGLE_BOTTLE } from '../../utils/query';
-import { useLazyQuery } from '@apollo/client';
+import {  useQuery } from '@apollo/client';
+import Moment from 'react-moment'
 export default function Single() {
-  let history = useHistory()
+  let navigate = useNavigate()
   const{id} = useParams();
-  const [bottleTextState, setSingleBottleText]= useState('')
-  const [bottleTimeState, setSingleBottleTime]= useState('')
+
   const {deleteBottleHandler} = useContext(BottleContext)
-  const [loadSingleBottle] = useLazyQuery(QUERY_SINGLE_BOTTLE)
 
-  const GetSingleBottle = async (id) => {
-    const responseSingleBottle = await loadSingleBottle({variables: {_id: id}})
-    const {bottleTime, bottleText}= responseSingleBottle.data.getSingleBottle
-    if(bottleText && bottleTime ) {
-      setSingleBottleText(bottleText)
-      setSingleBottleTime(bottleTime)
-    }
-  }
+  const singleData = useQuery(QUERY_SINGLE_BOTTLE, {
+    variables: {_id: id}
+  })
 
-  useEffect(async()=> {
-    GetSingleBottle(id)
-  }, [])
-
+  const {bottleText, bottleTime} =singleData.data?.getSingleBottle || []
+ 
   const DeleteAndRefresh = async () => {
     await deleteBottleHandler(id)
     navigate('/')
@@ -32,9 +23,10 @@ export default function Single() {
 
   return (
     <>
-    <div>{bottleTextState}</div> 
-    <div>{bottleTimeState}</div>
-    <button onClick={DeleteAndRefresh}>Delete Bottle</button>
+      
+      <Moment date={bottleTime} format="h:ma" />
+      <div>{bottleText}</div> 
+      <button onClick={DeleteAndRefresh}>Delete Bottle</button>
     </>
   )
 }

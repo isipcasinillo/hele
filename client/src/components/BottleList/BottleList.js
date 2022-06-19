@@ -10,9 +10,7 @@ const BottleList = () => {
       BottleAuthor: Auth.getProfile().data.username
     }
   })
-  console.log(query)
   const queryList = query.data?.getBottles
-  console.log(queryList)
   return (
     <>
       <div>

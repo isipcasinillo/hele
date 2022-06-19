@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -40,7 +40,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  let { id } = useParams();
   return (
     <>
       <ApolloProvider client={client}>
@@ -48,10 +47,10 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/bottle/:id" element={<BottleSingle />} />
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/bottle/:id" element={<BottleSingle />} />
             </Routes>
           </BrowserRouter>
         </BottleProvider>
