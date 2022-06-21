@@ -1,23 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_BOTTLES, QUERY_SINGLE_BOTTLE } from '../../utils/query';
+import { QUERY_BOTTLES_BYDATE } from '../../utils/query';
 import Moment from 'react-moment';
+import moment from 'moment'
 import Auth from '../../utils/auth';
-
+import BottleContext from '../../utils/BottleContext';
 export default function Dashboard() {
-  const getBottle = useQuery(QUERY_BOTTLES, {
-    variables: { BottleAuthor: Auth.getProfile().data.username },
+  const {selectDate} = useContext(BottleContext)
+  const getBottle = useQuery(QUERY_BOTTLES_BYDATE, {
+    variables: { bottleAuthor: Auth.getProfile().data.username,
+    date:  moment(selectDate).format('YYYY-MM-DD')
+    },
   });
-  const id = getBottle.data?.getBottles[0]?._id
-
-  const getSingleBottleId = useQuery(QUERY_SINGLE_BOTTLE, {
-    variables: { _id: id }
-  })
-  const recentBottle = getSingleBottleId.data?.getSingleBottle.bottleTime
+  const {date, bottleTime} = getBottle.data?.getBottleByDate?.[0] || {}
+  
   return (
     <>
       <div>
-        Last feeding was <Moment fromNow>{recentBottle}</Moment>
+        Last feeding was <Moment fromNow>{`${date} ${bottleTime}`}</Moment>
       </div>
     </>
   );

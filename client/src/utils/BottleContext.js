@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
-import { useMutation,useLazyQuery } from '@apollo/client';
-import { QUERY_BOTTLES,QUERY_BOTTLES_BYDATE } from '../utils/query';
+import { useMutation } from '@apollo/client';
+import { QUERY_BOTTLES_BYDATE } from '../utils/query';
 import { REMOVE_BOTTLE, ADD_BOTTLE } from '../utils/mutations'
 import moment from 'moment'
 import Auth from '../utils/auth';

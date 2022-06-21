@@ -2,7 +2,6 @@ import React from 'react';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 import { useNavigate } from 'react-router-dom';
-import moment from 'moment'
 const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
   const navigate = useNavigate()
   return (

@@ -1,8 +1,8 @@
-import React, { useEffect, useContext } from 'react';
+import React, {  useContext } from 'react';
 import moment from 'moment'
 import BottleCard from '../BottleCard/BottleCard';
 import { useQuery } from '@apollo/client';
-import { QUERY_BOTTLES,QUERY_BOTTLES_BYDATE } from '../../utils/query'
+import { QUERY_BOTTLES_BYDATE } from '../../utils/query'
 import BottleContext from '../../utils/BottleContext'
 import Auth from '../../utils/auth'
 
