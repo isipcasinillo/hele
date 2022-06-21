@@ -17,6 +17,14 @@ const resolvers = {
     },
     getSingleBottle: async (parent, { _id }) => {
       return await Bottle.findById({ _id: _id });
+    },
+    getBottleByDate: async (parent, { date, bottleAuthor }) => {
+      return await Bottle.find({
+        bottleAuthor: bottleAuthor,
+        bottleTime: {
+          $gte: new Date(date).setHours(0), $lt: new Date(date).setHours(23)
+        }
+      }).sort({ createdAt: -1 });
     }
   },
 
@@ -52,7 +60,7 @@ const resolvers = {
       });
     },
     removeBottle: async (parent, { _id }) => {
-      return await Bottle.findByIdAndDelete( _id);
+      return await Bottle.findByIdAndDelete(_id);
     },
     updateBottle: async (parent, { _id, bottleText, bottleTime }) => {
       return Bottle.findByIdAndUpdate(_id, {

@@ -3,14 +3,14 @@ import './BottleForm.css';
 import BottleContext from '../../utils/BottleContext'
 
 const BottleForm = () => {
-  const { 
+  const {
     setBottleText,
     setBottleTime,
     bottleText,
     bottleTime
   } = useContext(BottleContext)
 
-  const {handleBottleFormSubmit} = useContext(BottleContext)
+  const { handleBottleFormSubmit } = useContext(BottleContext)
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -24,7 +24,7 @@ const BottleForm = () => {
 
   return (
     <>
-      <form className="bottle-form" onSubmit={(event) => {handleBottleFormSubmit(event)}}>
+      <form className="bottle-form" onSubmit={(event) => { handleBottleFormSubmit(event) }}>
         <input
           placeholder="How much Ounce"
           name="bottleText"
@@ -40,7 +40,7 @@ const BottleForm = () => {
           onChange={handleChangeTime}
         />
 
-        <button className="btn-add" type="submit" onClick={() => {}}>
+        <button className="btn-add" type="submit" onClick={() => { }}>
           Add Bottle
         </button>
       </form>

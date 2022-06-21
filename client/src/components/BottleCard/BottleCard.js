@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { REMOVE_BOTTLE, UPDATE_BOTTLE } from '../../utils/mutations';
+import React from 'react';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
-  // const [bottleTextState, setBottleTextState] = useState(bottleText);
-  // const [bottleTimeState, setBottleTimeState] = useState(bottleTime);
   const navigate = useNavigate()
 
   return (
@@ -24,7 +20,7 @@ const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
         marginBottom: '10px',
         borderRadius: '20px',
       }}
-      onClick={()=> {
+      onClick={() => {
         navigate(`/bottle/${bottleIdx}`)
       }}
     >

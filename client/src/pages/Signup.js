@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import './Signup.css';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
 import Button from 'react-bootstrap/Button';
 import Auth from '../utils/auth';
-
 import duck from './duck.png';
-console.log('hello')
+import './Signup.css';
+
 const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
@@ -30,8 +28,6 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-
     try {
       const { data } = await createUser({
         variables: { ...formState },

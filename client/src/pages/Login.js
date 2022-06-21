@@ -7,13 +7,12 @@ import Auth from '../utils/auth';
 import './Login.css';
 import duck from './duck.png';
 const Login = () => {
-  console.log('login')
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+
   // updates the UI with every change of the state ((every letter is added))
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -23,7 +22,6 @@ const Login = () => {
   // when the form is submitted it will call in Auth
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await login({

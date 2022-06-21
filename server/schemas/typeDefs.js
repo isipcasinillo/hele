@@ -22,6 +22,7 @@ const typeDefs = gql`
     user: User
   }
   type Query {
+    getBottleByDate(date: String, bottleAuthor: String): [Bottle]
     getUser(username: String!): User
     getUsers: [User]
     getBottles(BottleAuthor: String): [Bottle]

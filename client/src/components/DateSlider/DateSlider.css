@@ -1,0 +1,9 @@
+input:focus {
+    outline: none !important;
+}
+
+
+.datepicker {
+    border-style: none;
+    text-decoration: underline;
+}
