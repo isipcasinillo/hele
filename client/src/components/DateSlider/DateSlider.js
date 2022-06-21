@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import BottleContext from '../../utils/BottleContext'
 import '../DateSlider/DateSlider.css'
+
 function DateSlider() {
-    const [selectDate, setSelectDate] = useState(moment()._d)
-    // console.log(selectDate)
+    const { setSelectDate, selectDate } = useContext(BottleContext)
+    console.log(selectDate)
     // console.log(new Date().setHours(0, 0, 0, 0))
     const x = new Date('2022-06-20T08:58').setHours(0, 6, 0)
     const y = new Date('2022-06-20T08:58').setHours(23, 0, 0)

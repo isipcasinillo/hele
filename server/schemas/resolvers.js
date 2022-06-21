@@ -52,11 +52,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addBottle: async (parent, { bottleAuthor, bottleText, bottleTime }) => {
+    addBottle: async (parent, { bottleAuthor, bottleText, bottleTime, date }) => {
       return Bottle.create({
         bottleAuthor,
         bottleText,
         bottleTime,
+        date
       });
     },
     removeBottle: async (parent, { _id }) => {

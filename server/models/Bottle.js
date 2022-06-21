@@ -16,6 +16,10 @@ const bottleSchema = new Schema({
     type: String,
     required: 'You need to enter time'
   },
+  date: {
+    type: String,
+    required: 'You need a date'
+  },
   createdAt: {
     type: Date,
     immutable: true,

@@ -34,7 +34,7 @@ const BottleForm = () => {
         />
         <input
           style={{ margin: '20px 0px 20px 0px' }}
-          type="datetime-local"
+          type="time"
           name="bottleTime"
           value={bottleTime}
           onChange={handleChangeTime}

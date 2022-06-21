@@ -11,6 +11,7 @@ const typeDefs = gql`
   type Bottle {
     _id: ID
     bottleText: String!
+    date: String
     bottleAuthor: String!
     bottleTime: String!
     createdAt: String
@@ -39,6 +40,7 @@ const typeDefs = gql`
       bottleText: String!
       bottleAuthor: String!
       bottleTime: String!
+      date: String!
     ): Bottle
     updateBottle(_id: ID!,bottleText: String, bottleTime: String): Bottle
     removeBottle(_id: ID): Bottle

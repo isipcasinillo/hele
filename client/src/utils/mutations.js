@@ -29,11 +29,13 @@ export const ADD_BOTTLE = gql`
     $bottleText: String!
     $bottleAuthor: String!
     $bottleTime: String!
+    $date: String!
   ) {
     addBottle(
       bottleText: $bottleText
       bottleAuthor: $bottleAuthor
       bottleTime: $bottleTime
+      date: $date
     ) {
       createdAt
       bottleText
