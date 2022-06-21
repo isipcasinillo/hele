@@ -7,12 +7,6 @@ import '../DateSlider/DateSlider.css'
 
 function DateSlider() {
     const { setSelectDate, selectDate } = useContext(BottleContext)
-    console.log(selectDate)
-    // console.log(new Date().setHours(0, 0, 0, 0))
-    const x = new Date('2022-06-20T08:58').setHours(0, 6, 0)
-    const y = new Date('2022-06-20T08:58').setHours(23, 0, 0)
-    console.log(moment(x).format("MMMM DD YYYY: HH MM SS"))
-    console.log(moment(y).format("MMMM DD YYYY: HH MM SS"))
     return (
 
         <>

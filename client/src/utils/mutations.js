@@ -29,7 +29,7 @@ export const ADD_BOTTLE = gql`
     $bottleText: String!
     $bottleAuthor: String!
     $bottleTime: String!
-    $date: String!
+    $date: String
   ) {
     addBottle(
       bottleText: $bottleText

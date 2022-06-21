@@ -32,3 +32,16 @@ query Query_getBottlesByUser ($BottleAuthor:String) {
   }
 }
 `
+
+
+export const QUERY_BOTTLES_BYDATE = gql` 
+  query Query_getBottlesByDate  ($date:String, $bottleAuthor:String) {
+  getBottleByDate(date:$date, bottleAuthor:$bottleAuthor) {
+    _id
+    bottleText
+    bottleTime
+    date
+    bottleAuthor
+  }
+}
+`

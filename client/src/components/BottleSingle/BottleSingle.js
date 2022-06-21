@@ -23,8 +23,7 @@ export default function Single() {
 
   return (
     <>
-      
-      <Moment date={bottleTime} format="h:ma" />
+      <div>{new Date(`feburary 8, 2022 ${bottleTime}`).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
       <div>{bottleText}</div> 
       <button onClick={DeleteAndRefresh}>Delete Bottle</button>
     </>

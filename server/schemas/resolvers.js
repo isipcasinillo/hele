@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Bottle } = require('../models');
 const { signToken } = require('../utils/auth');
-
+const moment = require('moment')
 const resolvers = {
   Query: {
     getUsers: async () => {
@@ -21,9 +21,7 @@ const resolvers = {
     getBottleByDate: async (parent, { date, bottleAuthor }) => {
       return await Bottle.find({
         bottleAuthor: bottleAuthor,
-        bottleTime: {
-          $gte: new Date(date).setHours(0), $lt: new Date(date).setHours(23)
-        }
+        date: date
       }).sort({ createdAt: -1 });
     }
   },

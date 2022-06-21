@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import moment from 'moment'
 import BottleCard from '../BottleCard/BottleCard';
 import { useQuery } from '@apollo/client';
-import { QUERY_BOTTLES } from '../../utils/query'
+import { QUERY_BOTTLES,QUERY_BOTTLES_BYDATE } from '../../utils/query'
+import BottleContext from '../../utils/BottleContext'
 import Auth from '../../utils/auth'
 
 const BottleList = () => {
-  const query = useQuery(QUERY_BOTTLES, {
+  const { selectDate} = useContext(BottleContext) 
+
+  const query = useQuery(QUERY_BOTTLES_BYDATE, {
     variables: {
-      BottleAuthor: Auth.getProfile().data.username
+      bottleAuthor: Auth.getProfile().data.username ,
+      date: moment(selectDate).format('YYYY-MM-DD')
     }
   })
-  const queryList = query.data?.getBottles
+
+  const queryList = query.data?.getBottleByDate
   return (
     <>
       <div>

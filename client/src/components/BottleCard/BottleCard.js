@@ -2,10 +2,9 @@ import React from 'react';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 import { useNavigate } from 'react-router-dom';
-
+import moment from 'moment'
 const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
   const navigate = useNavigate()
-
   return (
     <div
       className="card"
@@ -38,7 +37,7 @@ const BottleCard = ({ bottleIdx, bottleText, bottleTime }) => {
             <img src={bottlecute} className="img-cute" alt="bottle-cute" />
           </div>
           <div>
-            <div className="card-text">{new Date(bottleTime).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
+            <div className="card-text">{new Date(`feburary 8, 2022 ${bottleTime}`).toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })}  </div>
 
             <div className="card-text">{bottleText} oz</div>
           </div>
