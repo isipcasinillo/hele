@@ -4,6 +4,29 @@ input:focus {
 
 
 .datepicker {
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+.dateslider-container {
+    display: flex;
+    width: 356px;
+}
+
+.datepicker-input {
     border-style: none;
     text-decoration: underline;
+    text-align: center;
+}
+.dateslider-left {
+    border-style: none;
+    background-color: white;
+    padding: 0px;
+}
+
+.dateslider-right {
+    border-style: none;
+    background-color: white;
+    padding: 0px;
 }

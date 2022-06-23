@@ -8,20 +8,40 @@ import Dashboard from '../components/Dashboard/Dashboard';
 import DateSlider from '../components/DateSlider/DateSlider';
 const Home = () => {
   return (
-    <div className="homewrap">
+    // <div className="container">
+    //   {Auth.loggedIn() ? (
+    //     <>
+    //       <DateSlider className="layout-dateslider" />
+    //       <Dashboard className="layout-dashboard" />
+    //       <BottleForm className="layout-bottleform" />
+    //       <BottleList className="layout-bottlelist" />
+    //     </>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </div>
+    <>
+
       {Auth.loggedIn() ? (
-        <>
-          <div>
+        <div className="container">
+          <div className="layout-dateslider" >
             <DateSlider />
+          </div>
+          <div className="layout-dashboard" >
             <Dashboard />
+          </div>
+          <div className="layout-bottleform" >
             <BottleForm />
           </div>
-          <BottleList />
-        </>
+          <div className="layout-bottlelist" >
+            <BottleList />
+          </div>
+        </div>
       ) : (
         <Login />
       )}
-    </div>
+
+    </>
   );
 };
 

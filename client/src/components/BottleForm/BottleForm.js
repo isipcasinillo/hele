@@ -26,22 +26,28 @@ const BottleForm = () => {
     <>
       <form className="bottle-form" onSubmit={(event) => { handleBottleFormSubmit(event) }}>
         <input
-          placeholder="How much Ounce"
+          className='bottleform-input'
+          placeholder="How many ounces"
           name="bottleText"
-          type="text"
+          type="number"
+          min="0" max="12"
+          step="0.5"
           value={bottleText}
           onChange={handleChange}
         />
         <input
-          style={{ margin: '20px 0px 20px 0px' }}
+          className='bottleform-input-time'
           type="time"
           name="bottleTime"
           value={bottleTime}
           placeholder={bottleTime}
           onChange={handleChangeTime}
+          onClick={() => {
+
+          }}
         />
 
-        <button className="btn-add" type="submit" onClick={() => { }}>
+        <button className="bottleform-add" type="submit" onClick={() => { }}>
           Add Bottle
         </button>
       </form>

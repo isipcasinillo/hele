@@ -1,6 +1,6 @@
 .signup-container {
-  width: 396px;
-  height:512px;
+  width: 356px;
+  height: 512px;
   background-color: white;
   box-shadow: 0 0 15px  #14103022;
   margin: auto;
@@ -12,11 +12,11 @@
 
 .s{
   position:relative;
-  left: -136px;
+  left: -114px;
 }
 
 .signup-input {
-  width: 348px;
+  width: 308px;
   height: 56px;
   background-color: #F4F4F4;
   border-style: none;

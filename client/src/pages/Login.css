@@ -1,5 +1,5 @@
 .login-container {
-    width: 396px;
+    width: 356px;
     height: auto;
     background-color: white;
     box-shadow: 0 0 15px  #14103022;
@@ -13,11 +13,11 @@
 
 .l{
   position:relative;
-  left: -146px;
+  left: -126px;
 }
 
 .login-input {
-  width: 348px;
+  width: 308px;
   height: 56px;
   background-color: #F4F4F4;
   border-style: none;

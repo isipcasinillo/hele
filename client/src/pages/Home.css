@@ -1,4 +1,50 @@
-.homewrap {
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center
+}
+
+
+.layout-dateslider {
+  grid-area: dateslider;
+}
+.layout-dashboard {
+  grid-area: xy;
+}
+.layout-bottleform {
+  grid-area: bottleform;
+}
+.layout-bottlelist {
+  grid-area: bottlelist
+}
+
+
+
+@media only screen and (min-width: 1000px) {
+  .layout-dateslider {
+  grid-area: dateslider;
+}
+.layout-dashboard {
+  grid-area: dashboard;
+}
+.layout-bottleform {
+  grid-area: bottleform;
+}
+.layout-bottlelist {
+  grid-area: bottlelist;
+}
+.container {
+
+  display: grid;
+
+  grid-template-columns: 356px 356px;
+  grid-template-rows: 38px 111px 227px;
+ gap: 0px 16px;
+  grid-template-areas:
+    "dateslider bottlelist"
+    "dashboard bottlelist"
+    "bottleform bottlelist";
+}
+
 }

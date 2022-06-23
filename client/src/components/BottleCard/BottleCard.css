@@ -1,44 +1,40 @@
-/* .card {
+.bottlecard-container {
+  width: 356px;
+  height: 88px;
+  background-color: #FCAC99;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
-  height: 100px;
-  width: 500px;
-} */
-
-.btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
-.btn {
-  height: 40px;
-  width: 90px;
-}
-
-.card-mini {
+.bottlecard-ounce {
+  width: 160px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 20px;
 }
 
-.input {
-  width: 85px;
+.bottlecard-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: 43px;
 }
 
-.btn-dng {
-  background-color: #ee3232;
+
+.b1 {
+  color: white;
 }
 
-.btn-dng {
-  background-color: #e2e2e2;
+.bottle-card-text {
+  color: white;
+  font-size: 24px;
+  padding-left: 8px;
 }
 
-.img-cute {
-  height: 50px;
-  width: 50px;
-}
-
-.pls {
-  width: 300px;
+.space {
+  margin-top: 4px;
 }

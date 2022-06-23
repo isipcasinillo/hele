@@ -12,24 +12,21 @@ const Header = () => {
   return (
     <>
 
-      <Navbar bg="primary" variant="dark">
-        <Container>
+      <div className='header-container'>
         {Auth.loggedIn() ? (
           <>
             <Nav className="me-auto">
               <Link to="/" className='home'>Home</Link>
             </Nav>
             <div>
-            <span>Hey there, {Auth.getProfile().data.username}!</span>
-            <Button onClick={logout}>Logout</Button>
+              <span>Hey there, {Auth.getProfile().data.username}!</span>
+              <button onClick={logout}>Logout</button>
             </div>
           </>
-            ) : (
-              <></>
-            )}
-        
-        </Container>
-      </Navbar>
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 };

@@ -18,7 +18,7 @@ export const BottleProvider = ({ children }) => {
     try {
       await deleteBottle({
         variables: { id: id },
-        refetchQueries: [{ query: QUERY_BOTTLES_BYDATE, variables: { bottleAuthor: Auth.getProfile().data.username, date: moment(selectDate).format('YYYY-MM-DD')  } }]
+        refetchQueries: [{ query: QUERY_BOTTLES_BYDATE, variables: { bottleAuthor: Auth.getProfile().data.username, date: moment(selectDate).format('YYYY-MM-DD') } }]
       })
     } catch (e) {
       console.log(e)
@@ -40,7 +40,7 @@ export const BottleProvider = ({ children }) => {
           bottleAuthor: Auth.getProfile().data.username,
           date: moment(selectDate).format('YYYY-MM-DD'),
         },
-        refetchQueries: [{ query: QUERY_BOTTLES_BYDATE, variables: { bottleAuthor: Auth.getProfile().data.username, date: moment(selectDate).format('YYYY-MM-DD')  } }]
+        refetchQueries: [{ query: QUERY_BOTTLES_BYDATE, variables: { bottleAuthor: Auth.getProfile().data.username, date: moment(selectDate).format('YYYY-MM-DD') } }]
       });
       setBottleText('');
       setBottleTime('');
