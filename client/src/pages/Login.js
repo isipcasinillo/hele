@@ -34,87 +34,73 @@ const Login = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="card-form">
-        <div className="card-container">
-          <div>
-            <img src={duck} width="300" alt="baby-bottle" height="300" />
+    <>
+      <div className="login-container">
+        <div>
+          <div className='login-font24 login-padding-top-24 l'>
+            Login
           </div>
-          <div>
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="formx">
-                <div
-                  style={{
-                    marginBottom: '10px',
-                    marginTop: '10px',
-                  }}
-                >
-                  Email
-                </div>
+        </div>
+        <div>
+          {data ? (
+            <p>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit} className="signup-form">
+              <div className='login-font16 login-padding-top-22 '>
+                Email
+              </div>
+              <div className='login-padding-top-8'>
                 <input
-                  className="form-input"
+                  className="login-input "
                   placeholder="Your email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <div
-                  style={{
-                    marginBottom: '10px',
-                    marginTop: '10px',
-                  }}
-                >
-                  Password
-                </div>
+              </div>
+
+              <div className='login-padding-top-8'>
+                Password
+              </div>
+              <div className='login-padding-top-8'>
                 <input
-                  className="form-input"
+                  className="login-input"
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <div>
-                  <Button
-                    style={{ cursor: 'pointer', marginTop: '20px' }}
-                    type="submit"
-                  >
-                    Submit
-                  </Button>
-                </div>
-                <div
-                  style={{
-                    fontStyle: 'italic',
-                  }}
-                >
-                  Don't have an account?
-                  <Link
-                    to="/signup"
-                    style={{
-                      fontStyle: 'normal',
-                      marginLeft: '3px',
-                    }}
-                  >
-                    Sign-up
-                  </Link>
-                </div>
-              </form>
-            )}
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
               </div>
-            )}
-          </div>
+
+              <div>
+                <button
+                  className='login-submit'>
+                  Submit
+                </button>
+              </div>
+              <div className='login-padding-top-8'>
+                Don't have an account?
+                <Link
+                  className='login-padding-left-8'
+                  to="/signup">
+                  Sign-up
+                </Link>
+              </div>
+            </form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

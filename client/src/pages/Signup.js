@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
-import Button from 'react-bootstrap/Button';
 import Auth from '../utils/auth';
 import duck from './duck.png';
 import './Signup.css';
@@ -40,105 +39,97 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="card-form">
-        <div className="card-container">
-          <div>
-            <img src={duck} width="300" alt="baby-bottle" height="300" />
+    <>
+      <div className="signup-container">
+        <div>
+          <div className='signup-font24 signup-padding-top-24 s'>
+            Sign up
           </div>
-          <div>
-            {data ? (
-              <p>
-                Success! You are now being directed
-              </p>
-            ) : (
-              <form
-                onSubmit={handleFormSubmit}
-                className="formx"
+        </div>
+        <div>
+          {data ? (
+            <p>
+              Success! You are now being directed
+            </p>
+          ) : (
+            <form
+              onSubmit={handleFormSubmit}
+            >
+              <div
+                className='signup-font16 signup-padding-top-22 '
               >
-                <div
-                  style={{
-                    marginBottom: '10px',
-                    marginTop: '10px',
-                  }}
-                >
-                  Username
-                </div>
+                Username
+              </div>
+              <div className='signup-padding-top-8'>
                 <input
-                  className="w300"
-                  placeholder="  Enter username"
+                  className="signup-input"
+                  placeholder="Enter username"
                   name="username"
                   type="text"
                   value={formState.username}
                   onChange={handleChange}
                 />
-                <div
-                  style={{
-                    marginBottom: '10px',
-                    marginTop: '10px',
-                  }}
-                >
-                  Email
-                </div>
+              </div>
+
+              <div
+                className='signup-font16 signup-padding-top-8'
+              >
+                Email
+              </div>
+              <div className='signup-padding-top-8'>
                 <input
-                  className="w300"
-                  placeholder="  Enter email"
+                  className="signup-input"
+                  placeholder="Enter email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
-                <div
-                  style={{
-                    marginBottom: '10px',
-                    marginTop: '10px',
-                  }}
-                >
-                  Password
-                </div>
+              </div>
+
+              <div
+                className='signup-font16 signup-padding-top-8'
+              >
+                Password
+              </div>
+              <div className='signup-padding-top-8'>
                 <input
-                  className="w300"
-                  placeholder="  ********"
+                  className="signup-input"
+                  placeholder="********"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <div>
-                  <Button
-                    style={{ cursor: 'pointer', marginTop: '20px' }}
-                    type="submit"
-                  >
-                    Submit
-                  </Button>
-                </div>
-                <div
-                  style={{
-                    fontStyle: 'italic',
-                  }}
-                >
-                  Already have an account?
-                  <Link
-                    to="/login"
-                    style={{
-                      fontStyle: 'normal',
-                      marginLeft: '3px',
-                    }}
-                  >
-                    Login
-                  </Link>
-                </div>
-              </form>
-            )}
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                Please check your credentials
               </div>
-            )}
-          </div>
+
+              <button
+                type="submit"
+                className="signup-submit"
+              >
+                Submit
+              </button>
+              <div
+                className='signup-font16 signup-padding-top-16'
+              >
+                Already have an account?
+                <Link
+                  to="/login"
+                  className='signup-font16 signup-padding-left-8'
+                >
+                  Login
+                </Link>
+              </div>
+            </form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              Please check your credentials
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

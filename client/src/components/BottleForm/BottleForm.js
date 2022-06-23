@@ -37,6 +37,7 @@ const BottleForm = () => {
           type="time"
           name="bottleTime"
           value={bottleTime}
+          placeholder={bottleTime}
           onChange={handleChangeTime}
         />
 

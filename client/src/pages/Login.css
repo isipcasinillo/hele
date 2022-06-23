@@ -1,37 +1,64 @@
-.card-form {
-  margin-top: 300px;
-  box-shadow: 0px 0px 15px 0px rgba(175, 174, 182, 0.664);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: space-evenly;
-  height: 500px;
-  width: 700px;
-  background-color: rgba(255, 255, 255, 0.37);
+.login-container {
+    width: 396px;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 0 15px  #14103022;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 22px;
+    padding-bottom: 32px;
 }
 
-.card-form input {
-  height: 45px;
-  width: 250px;
+.l{
+  position:relative;
+  left: -146px;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 800px;
-}
-.formx {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
+.login-input {
+  width: 348px;
+  height: 56px;
+  background-color: #F4F4F4;
+  border-style: none;
+  border-radius: 5px;
+  padding-left: 12px;
 }
 
-.signup-container {
-  display: flex;
-  justify-content: center;
+.login-submit {
+  width: 168px;
+  height: 56px;
+  font-size: 16px;
+  background-color: #5E6CEC;
+  border-style: none;
+  border-radius: 5px;
+  margin-top: 16px;
+}
+
+
+.login-font24 {
+  font-size: 24px;
+}
+
+.login-font16 {
+  font-size: 16px;
+}
+
+.login-padding-top-24 {
+  padding-top:24px;
+}
+
+.login-padding-top-22 {
+  padding-top:22px;
+}
+
+.login-padding-top-16 {
+  padding-top:16px;
+}
+.login-padding-top-8 {
+  padding-top:8px;
+}
+
+.login-padding-left-8 {
+  padding-left: 8px;
 }
