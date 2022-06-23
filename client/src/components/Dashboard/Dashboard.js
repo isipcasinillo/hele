@@ -19,7 +19,8 @@ export default function Dashboard() {
   return (
     <>
       <div className='dashboard-container'>
-        {date && date ? <div>Last feeding was <Moment fromNow>{`${date} ${bottleTime}`}</Moment></div> : <div> No feeding history</div>}
+        {/* {date && date ? <div>Last feeding was <Moment fromNow>{`${date} ${bottleTime}`}</Moment></div> : <div> No feeding history</div>} */}
+        {date && date ? <div>Last feeding was {moment(`${date} ${bottleTime}`).fromNow()}</div> : <div> No feeding history</div>}
 
       </div>
     </>

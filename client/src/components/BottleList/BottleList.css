@@ -1,5 +1,20 @@
 .bottlelist {
+  margin-top: 40px;
   height: 374px;
   width: 356px;
   overflow-y:auto;
+}
+.bottlelist {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.bottlelist::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+
+@media only screen and (min-width: 1000px) {
+.bottlelist {
+  margin-top: 0px;
+}
 }

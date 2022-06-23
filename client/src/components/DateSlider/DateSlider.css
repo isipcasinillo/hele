@@ -7,6 +7,7 @@ input:focus {
     margin: auto;
     text-align: center;
     font-size: 24px;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .dateslider-container {

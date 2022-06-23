@@ -20,6 +20,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
   margin-top: 8px;
   color: white;
   font-size: 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .bottleform-input {
@@ -31,6 +32,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
   background-color: #F4F4F4;
   font-size: 24px;
   color:#8D8D8D;
+  font-family: 'IBM Plex Sans', sans-serif;
 
 }
 .bottleform-input-time {
@@ -43,6 +45,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
   margin-top: 8px;
   font-size: 24px;
   color:#8D8D8D;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 @media only screen and (min-width: 1000px) {
