@@ -2,7 +2,6 @@ import React from 'react';
 import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 import { useNavigate } from 'react-router-dom';
-import { IoIosWater, IoIosClock } from 'react-icons/io'
 import { IoWater, IoTime } from 'react-icons/io5'
 const BottleCard = ({ bottleIdx, bottleText, bottleTime, noSpace }) => {
   const navigate = useNavigate()

@@ -42,8 +42,9 @@ const typeDefs = gql`
       bottleTime: String!
       date: String
     ): Bottle
-    updateBottle(_id: ID!,bottleText: String, bottleTime: String): Bottle
+    updateBottle( _id: ID bottleText: String bottleTime: String): Bottle
     removeBottle(_id: ID): Bottle
+
   }
 `;
 

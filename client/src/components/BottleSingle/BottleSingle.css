@@ -1,0 +1,100 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+}
+.bottlesingle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottlecard-ounce {
+  width: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.bottlesingle-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: 43px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.bottlesingle-container {
+  width: 356px;
+  height: 88px;
+  background-color: #FCAC99;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bottlesingle-button {
+    width: 174px;
+    height: 96px;
+    border-style: none;
+    border-radius: 5px;
+}
+.bottleSingle-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+}
+.cr {
+    background-color: #E67070;
+    margin-left: 8px;
+}
+
+.ce {
+    background-color: #5479CC;
+}
+.mt8 {
+  margin-top:8px;
+}
+.singlebottleform-input {
+  width: 356px;
+  height: 56px;
+  text-align: center;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #F4F4F4;
+  font-size: 24px;
+  color:#8D8D8D;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color:black
+
+}
+
+.singlebottleform-input-time {
+  width: 356px;
+  height: 56px;
+  text-align: center;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #F4F4F4;
+  margin-top: 8px;
+  font-size: 24px;
+  color:#8D8D8D;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.single-input-textx {
+  width: 35px;
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
