@@ -8,16 +8,16 @@
 
 
 .layout-dateslider {
-  grid-area: dateslider;
+  order: 0;
 }
 .layout-dashboard {
-  grid-area: xy;
+  order: 1;
 }
 .layout-bottleform {
-  grid-area: bottleform;
+  order:3;
 }
 .layout-bottlelist {
-  grid-area: bottlelist
+  order: 2;
 }
 
 

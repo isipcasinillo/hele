@@ -12,16 +12,17 @@ import moment from 'moment'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 export default function Single() {
-  const [singleText, setSingleText] = useState('hello')
-  const [singleTime, setSingleTime] = useState()
+  const [singleText, setSingleText] = useState('')
+  const [singleTime, setSingleTime] = useState('')
 
   const { selectDate } = useContext(BottleContext)
   let navigate = useNavigate()
   const { id } = useParams();
 
-  const [UpdateBottle] = useMutation(UPDATE_BOTTLE)
+  const [UpdateBottle, {error}] = useMutation(UPDATE_BOTTLE)
 
   const updateBottleHandler = async () => {
+    if (singleText === '') return
     try {
       await UpdateBottle({
         variables: {
@@ -91,7 +92,7 @@ export default function Single() {
       <div className='bottleSingle-form'>
         <input
           className='singlebottleform-input'
-          placeholder={bottleText}
+          placeholder='amount'
           name="bottleText"
           type="number"
           min="0" max="12"
@@ -112,7 +113,11 @@ export default function Single() {
         <button className="bottlesingle-button ce" onClick={updateBottleHandler}>Edit</button>
         <button className="bottlesingle-button cr" onClick={DeleteAndRefresh}>Delete</button>
       </div>
-
+      {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              Please check both ounce and time
+            </div>
+          )}
     </div >
   )
 }

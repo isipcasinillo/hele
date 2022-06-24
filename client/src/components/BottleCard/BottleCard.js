@@ -1,5 +1,4 @@
 import React from 'react';
-import bottlecute from '../Images/bottlecute.png';
 import './BottleCard.css';
 import { useNavigate } from 'react-router-dom';
 import { IoWater, IoTime } from 'react-icons/io5'

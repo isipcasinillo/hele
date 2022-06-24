@@ -1,6 +1,6 @@
 .bottlelist {
   margin-top: 40px;
-  height: 374px;
+  max-height: 174px;
   width: 356px;
   overflow-y:auto;
 }
@@ -16,5 +16,6 @@
 @media only screen and (min-width: 1000px) {
 .bottlelist {
   margin-top: 0px;
+  max-height: 374px;
 }
 }

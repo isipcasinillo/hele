@@ -1,5 +1,5 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
+  color: rgb(93, 93, 93);
   opacity: 1; /* Firefox */
 }
 
@@ -84,10 +84,12 @@
 .cr {
     background-color: #E67070;
     margin-left: 8px;
+    color: white;
 }
 
 .ce {
     background-color: #5479CC;
+    color: white;
 }
 .mt8 {
   margin-top:8px;

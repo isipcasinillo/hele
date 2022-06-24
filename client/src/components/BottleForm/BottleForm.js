@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import './BottleForm.css';
 import BottleContext from '../../utils/BottleContext'
-
 const BottleForm = () => {
   const {
     setBottleText,

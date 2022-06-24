@@ -4,16 +4,8 @@ const { signToken } = require('../utils/auth');
 const moment = require('moment')
 const resolvers = {
   Query: {
-    getUsers: async () => {
-      return User.find().populate('bottles');
-    },
     getUser: async () => {
       return User.findOne({ username }).populate('bottles');
-    },
-    getBottles: async (parent, { BottleAuthor }) => {
-      return await Bottle.find({ bottleAuthor: BottleAuthor }).sort({
-        createdAt: -1,
-      });
     },
     getSingleBottle: async (parent, { _id }) => {
       return await Bottle.findById({ _id: _id });

@@ -52,7 +52,7 @@ mutation removeBottle($id: ID) {
 }
 `
 export const UPDATE_BOTTLE = gql`
-mutation Update_bottle_id ($_id: ID, $bottleTime:String, $bottleText:String){
+mutation Update_bottle_id ($_id: ID!, $bottleTime:String!, $bottleText:String!){
   updateBottle(_id:$_id, bottleTime:$bottleTime, bottleText:$bottleText ){
     _id
     bottleText
