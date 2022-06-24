@@ -15,6 +15,31 @@
   flex-direction: column;
   align-items: center;
 }
+
+.bottlesingleback {
+  height: 80px;
+  width: 356px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+
+}
+.bs-click {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.bs-backdrop {
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+.single-left {
+   border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0px;
+}
 .bottlecard-ounce {
   width: 160px;
   display: flex;
@@ -41,6 +66,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: row;
+  margin-top: 76px;
 }
 
 .bottlesingle-button {
@@ -97,4 +123,11 @@
   border-style: none;
   background-color: rgba(255, 255, 255, 0);
   color: white;
+}
+
+
+@media only screen and (min-width: 1000px) {
+.bottlesingle-container {
+  margin-top: 76px;
+}
 }

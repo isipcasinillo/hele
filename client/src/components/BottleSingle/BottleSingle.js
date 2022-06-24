@@ -9,6 +9,8 @@ import './BottleSingle.css'
 import { IoWater, IoTime } from 'react-icons/io5'
 import Auth from '../../utils/auth'
 import moment from 'moment'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
+
 export default function Single() {
   const [singleText, setSingleText] = useState('hello')
   const [singleTime, setSingleTime] = useState()
@@ -64,6 +66,17 @@ export default function Single() {
 
   return (
     <div className='bottlesingle-wrapper'>
+      <div className='bs-backdrop'>
+        <div className='bottlesingleback'>
+          < div className='bs-click' onClick={() => {
+            navigate('/')
+          }}>
+            <div className='single-left'><AiOutlineArrowLeft size={28} /></div>
+            <div style={{ paddingLeft: '4px' }}>Back</div>
+          </div>
+
+        </div>
+      </div>
       <div className='bottlesingle-container '>
         <div className='bottlecard-ounce'>
           <IoWater size={26} className="b1" />
@@ -100,6 +113,6 @@ export default function Single() {
         <button className="bottlesingle-button cr" onClick={DeleteAndRefresh}>Delete</button>
       </div>
 
-    </div>
+    </div >
   )
 }

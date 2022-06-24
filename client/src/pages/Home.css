@@ -1,4 +1,5 @@
 .container {
+  margin-top:24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,16 +36,15 @@
   grid-area: bottlelist;
 }
 .container {
-
+  margin-top: 120px;
   display: grid;
-
   grid-template-columns: 356px 356px;
   grid-template-rows: 38px 111px 227px;
- gap: 0px 16px;
+  gap: 0px 16px;
   grid-template-areas:
-    "dateslider bottlelist"
-    "dashboard bottlelist"
-    "bottleform bottlelist";
+  "dateslider bottlelist"
+  "dashboard bottlelist"
+  "bottleform bottlelist";
 }
 
 }

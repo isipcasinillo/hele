@@ -8,20 +8,7 @@ import Dashboard from '../components/Dashboard/Dashboard';
 import DateSlider from '../components/DateSlider/DateSlider';
 const Home = () => {
   return (
-    // <div className="container">
-    //   {Auth.loggedIn() ? (
-    //     <>
-    //       <DateSlider className="layout-dateslider" />
-    //       <Dashboard className="layout-dashboard" />
-    //       <BottleForm className="layout-bottleform" />
-    //       <BottleList className="layout-bottlelist" />
-    //     </>
-    //   ) : (
-    //     <Login />
-    //   )}
-    // </div>
     <>
-
       {Auth.loggedIn() ? (
         <div className="container">
           <div className="layout-dateslider" >
